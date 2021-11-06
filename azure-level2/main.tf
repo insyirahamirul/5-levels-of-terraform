@@ -15,12 +15,12 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "myapp-resourcegroup"
+  name     = var.resource_group_name
   location = "southeastasia"
 }
 
 resource "azurerm_app_service_plan" "app_plan" {
-  name                = "myapp-appserviceplan"
+  name                = var.app_service_plan_name
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 
@@ -31,7 +31,7 @@ resource "azurerm_app_service_plan" "app_plan" {
 }
 
 resource "azurerm_app_service" "webapp" {
-  name                = "myapp-appservice"
+  name                = var.app_service_name
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   //Getting the ID of app service plan created in line 22-31
@@ -54,7 +54,7 @@ resource "azurerm_app_service" "webapp" {
 }
 
 resource "azurerm_sql_server" "sqldb" {
-  name                         = "myapp-sqlserver"
+  name                         = var.sql_server_name
   resource_group_name          = azurerm_resource_group.rg.name
   location                     = azurerm_resource_group.rg.location
   version                      = "12.0"
@@ -63,7 +63,7 @@ resource "azurerm_sql_server" "sqldb" {
 }
 
 resource "azurerm_sql_database" "db" {
-  name                = "terraform-sqldatabase"
+  name                = var.sql_db_name
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
   server_name         = azurerm_sql_server.sqldb.name
