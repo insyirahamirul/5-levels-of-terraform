@@ -1,0 +1,5 @@
+resource_group_name = "myapp-staging-resourcegroup"
+app_service_plan_name = "myapp-staging-appserviceplan"
+app_service_name = "myapp-staging-appservice"
+sql_server_name = "myapp-staging-sqlserver"
+sql_db_name = "myapp-staging-sqldatabase"

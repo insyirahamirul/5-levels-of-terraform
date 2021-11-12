@@ -1,0 +1,5 @@
+resource_group_name = "myapp-prod-resourcegroup"
+app_service_plan_name = "myapp-prod-appserviceplan"
+app_service_name = "myapp-prod-appservice"
+sql_server_name = "myapp-prod-sqlserver"
+sql_db_name = "myapp-prod-sqldatabase"
